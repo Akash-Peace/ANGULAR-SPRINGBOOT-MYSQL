@@ -1,0 +1,42 @@
+<div><!--style="display: flex; justify-content: space-between; margin-left: 20px; margin-right: 20px; margin-top: 10px"-->
+  <h1 style="text-align: center; margin-top: 50px; color:blueviolet">TRAINING MODULE</h1>
+  <!--<ul class="nav">
+    <li class="nav-item">
+      <button type="button" class="btn btn-primary">Projects</button>
+    </li>
+    &nbsp;&nbsp;&nbsp;
+    <li class="nav-item">
+      <button type="button" class="btn btn-primary">Skills</button>
+    </li>
+  </ul>-->
+</div>
+<div style="display: flex; justify-content: space-evenly; margin-top: 50px">
+  <div class="card" style="width: auto">
+    <h1 style="text-align: center;">PROJECTS</h1>
+    <ul class="list-group list-group-flush">
+      <div *ngFor="let data of training_module_data['projects']">
+        <li style="cursor: pointer;" class="list-group-item" (click)="skill_check(data[1])"><h3>{{data[0]}}</h3>Skills required: <span style="font-weight: 500;">{{data[1]}}</span></li>
+      </div>
+    </ul>
+  </div>
+  <div class="card" style="width: auto; border-color:lightcoral;" *ngIf="init !== 0">
+    <h1 style="text-align: center; color: maroon;">TRAINING REQUIRED</h1>
+    <p style="text-align: center;">Project requirements unsatisfied</p>
+    <ul class="list-group list-group-flush">
+      <div *ngFor="let data of training">
+        <li class="list-group-item">Employee ID: <span style="font-weight: 500;">{{data[0]}}</span>&nbsp;&nbsp;|&nbsp;&nbsp;Skills: <span style="font-weight: 500;">{{data[1]}}</span>
+        <p style="color: red;">Training needed in <span style="font-weight: 500;">{{data[2]}}</span></p>
+        </li>
+      </div>
+    </ul>
+  </div>
+  <div class="card" style="width: auto; border-color: lightgreen;" *ngIf="init !== 0">
+    <h1 style="text-align: center; color: green;">AVAILABLE</h1>
+    <p style="text-align: center;">Project requirements satisfied</p>
+    <ul class="list-group list-group-flush">
+      <div *ngFor="let data of matched">
+        <li class="list-group-item">Employee ID: <span style="font-weight: 500;">{{data[0]}}</span>&nbsp;&nbsp;|&nbsp;&nbsp;Skills: <span style="font-weight: 500;">{{data[1]}}</span></li>
+      </div>
+    </ul>
+  </div>
+</div>
